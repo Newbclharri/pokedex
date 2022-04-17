@@ -1,0 +1,212 @@
+:root{
+    --bgColorHeader: orange;
+    --bgColorBody: white;
+    --fontSwitch: 'Press Start 2P', cursive; 
+    --colorFire: orange;
+    --colorWater: aqua;
+    --colorGrass: rgb(96, 233, 96);
+    --colorBug: rgb(218, 106, 218);
+    --boxShadowFire: 10px -5px orange;
+    --boxShadowWater: 10px -5px aqua;
+    --boxShadowGrass: 10px -5px rgb(96, 233, 96);
+    --boxShadowBug: 10px -5px rgb(218, 106, 218);
+    --skillsBg: rgba(238, 240, 232, 0.658);
+    --scale: 1.8;
+}
+
+@font-face {
+    font-family: pokemon_solid;
+    src: url("../fonts/pokemon_solid.ttf");
+}
+
+*{
+    box-sizing: border-box;
+
+    /* border: 1px solid red; */
+}
+
+
+header{
+    display: grid;
+    grid-template-columns: auto auto ;
+    background-color: var(--bgColorHeader);
+    font-family: pokemon_solid;
+    color: rgb(240, 207, 146);
+    text-shadow:2px 2px rgb(34, 150, 228);
+}
+
+#header-title{
+    padding-left: 40px;
+}
+
+#pkball-container{
+    display: flex;
+    justify-content: right;
+    padding-top: 30px;
+    padding-right: 40px;
+}
+#catch-em{
+    position: relative;
+    top: -20px
+}
+
+#pokeball-img{
+    height: 70px;
+    width: 70px;    
+    background-color: var(--bgColorHeader);
+    border: 2px solid var(--bgColorHeader);
+    background-image: url('https://user-images.githubusercontent.com/97874956/163649584-00dc4d78-9e61-40ae-a435-6b4fe2aaf6ad.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: right;
+}
+.index_ejs body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.index_ejs main{
+    display: grid;
+    grid-template-columns: 55vh 55vh 55vh;
+    gap: 40px;
+    margin-left: 40px;
+}
+a{
+    width: fit-content;
+}
+.nintendo-switch-bg{
+    height: 200px;
+    width: 100%;
+    background-image: url("https://user-images.githubusercontent.com/97874956/163660278-4cceee67-0e61-46a9-b709-8e3b3979a35a.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--bgColorBody);
+    border-radius: 10px;
+    box-shadow: var(--boxShadow);
+}
+
+.shadow-Fire{
+    box-shadow: var(--boxShadowFire);
+}
+
+.shadow-Water{
+    box-shadow: var(--boxShadowWater);
+}
+
+.shadow-Grass{
+    box-shadow: var(--boxShadowGrass);
+}
+
+.shadow-Bug{
+    box-shadow: var(--boxShadowBug);
+}
+.switch-screen{
+    height: 95%;
+    width: 75%;
+    background-image: url("https://user-images.githubusercontent.com/97874956/163669288-6abe250c-3960-4c21-8ec6-c6874ad359be.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    /* position: relative;
+    right: -10vh; */
+}
+.poke-name{
+    margin: 0 auto;
+    margin-top: 10px;
+    width:fit-content;
+    font-family: var(--fontSwitch);
+}
+
+.value{
+    color: blue;
+    text-shadow: -2px 2px aquamarine;
+}
+
+.skills-container{
+    position: relative;
+    top: 10px;
+    right: -58%;
+    color: yellow;
+    text-shadow: -1px 1px blue;
+    font-family: var(--fontSwitch);
+    font-size: 12px;
+    display: inline-block;    
+    width: fit-content;
+    padding-left: 5px;
+    background-color: var(--skillsBg);
+    border: 2px solid var(--skillsBg);
+    border-radius: 10px;
+}
+
+.skills{
+    width: fit-content;
+    margin-bottom: 8px;
+}
+
+.type-item{
+    font-family: var(--fontSwitch);
+    font-size: 12px;
+    color: yellow;
+    transition: .2s;
+}
+
+.img-container{
+    position: relative;
+    top: -13vh;
+    right: 0vh;
+    width: fit-content;
+}
+
+.img-container img{
+    height: 150px;
+    width: 150px; 
+}
+
+.zoom{
+    transition: .2s;    
+}
+
+.zoom:hover{
+    -ms-transform: scale(var(--scale)); /* IE 9 */
+    -webkit-transform: scale(var(--scale)); /* Safari 3-8 */
+    transform: scale(var(--scale)); 
+    
+}
+
+.type-item:hover{
+    color: blue;
+    transform: scale(var(--scale)); 
+    
+}
+
+.Grass{   
+    color: var(--colorGrass);
+    text-shadow: -2px 2px blue;
+    border: 2px solid var(--colorGrass);
+    border-radius: 10px;
+}
+
+.Fire{
+    color: var(--colorFire);
+    text-shadow: -2px 2px blue;
+    border: 2px solid var(--colorFire);
+    border-radius: 10px;
+}
+
+.Water{
+    color: var(--colorWater);
+    text-shadow: -2px 2px blue;
+    border: 2px solid var(--colorWater);
+    border-radius: 10px;
+}
+
+.Bug{
+    color: var(--colorBug);
+    text-shadow: -2px 2px blue;
+    border: 2px solid var(--colorBug);
+    border-radius: 10px;
+}

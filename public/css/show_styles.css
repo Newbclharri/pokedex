@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 2px solid red;
+}
+:root{
+    --skillBarColor: red;
+}
+.show_ejs body{
+    height: 90%;
+    margin-bottom: 100vh;
+}
+
+.show_ejs header img{
+    width: 135px;
+    height: 154px;
+    display: flex;
+    justify-content: end;
+}
+.show_ejs h2{
+    display: inline-block;
+}
+
+.rotate{
+    transform: rotate(-35deg); 
+}
+.show_ejs main{
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    background-image: url("https://user-images.githubusercontent.com/97874956/163669288-6abe250c-3960-4c21-8ec6-c6874ad359be.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+#hp{
+    background-color: var(--skillBarColor);
+    width: 45%;
+}
+
+#attack{
+    background-color: var(--skillBarColor);
+    width: 49%
+}
+
+#spattack{
+    background-color: var(--skillBarColor);
+    width: 65%;
+}
+
+#spdefense{
+    background-color: var(--skillBarColor);
+    width: 65%;
+}
+
+#speed{
+    background-color: var(--skillBarColor);
+    width: 45%;
+}

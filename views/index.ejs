@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include("partials/head.ejs")  %>
+      <body class="index_ejs">
+        <header> 
+            <div id="header-title"><h1>PokéDex</h1></div>
+            <div id="pkball-container">
+                <span id="catch-em"><h2>Catch'em all ➡</h2> </span> <div id="pokeball-img"></div>
+            </div>
+        </header> <br> <br>
+        <main>
+            <% for(i = 0; i < pokedex.length; i++) {%>
+                <div id="<%= +pokedex[i].id %> " class="display-pokemon">
+                    <div class="nintendo-switch-bg shadow-<%= pokedex[i].type[0]%>">
+                        <div class="pokemon switch-screen">
+                            <a href="/pokedex/<%=i%>">
+                                <div class="zoom poke-name <%= pokedex[i].type[0]%>"><%=pokedex[i].name%></div>
+                            </a>
+                            <a href="/pokedex/<%= i %> "> 
+                                <div id="<%= pokedex[i].name%>" class="skills-container zoom">
+                            
+                            <% let stats = pokedex[i].stats %>
+                            <% for(skill in stats) {%>
+                                    <div class="skills"><%-skill%>: <span class="value"><%= stats[skill] %></span></div>        
+                            <% } %>
+                            </div>
+                            </a>                                                 
+                            <a href="/pokedex/<%=i %> "> 
+                                <div class="img-container zoom">
+                                    <div class="type-item"><%= pokedex[i].type[0]%>,<%= pokedex[i].type[1]%></div>
+                                    <img class="<%= pokedex[i].type[0]%>" src="<%= pokedex[i].img%>" alt="<%= pokedex[i].name%>">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>  
+        </main>
+    </body>
+</html>

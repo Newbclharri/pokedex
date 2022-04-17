@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %> 
+    <body class="show_ejs">
+        <header>
+            <h1><%= pokemon.name %> </h1>
+            <a href="/pokedex">
+                <div class="container">
+                    <img 
+                        src="https://user-images.githubusercontent.com/97874956/163709408-30602c13-28b5-4afe-a677-c1e26f2dd654.png" 
+                        alt="<%= pokemon.name%>">
+                    <h2 class="rotate">To Pokedex!</h2>
+                </div>
+            </a>
+        </header>
+        <main>
+            <div class="show-img-container">
+                <div></div>
+                <img class="<%= pokemon.type[0] %> " src="<%=pokemon.img%>" alt="<%=pokemon.name%>">
+            </div>
+        </main>
+        <footer>
+            <section id="skill-bars">
+                <div id="show-skill-bar-container">
+                    <% for(skill in pokemon.stats){ %>
+                        <p><%=skill%></p>
+                        <div id="<%= skill %>" class="skill-bar"><%= +pokemon.stats[skill] %> </div>
+                    <% } %>
+                </div>
+                <script>
+                    const skillBarDivs = document.querySelectorAll(".skill-bar");
+                    const FLAG_ORANGE = 25;
+                    const FLAG_YELLOW = 50;
+                    const FLAG_GREEN = 75;
+                    console.log(skillBarDivs)
+                    console.log(skillBarDivs[0].textContent)
+                    for(let div of skillBarDivs){
+                        if(div.textContent >= FLAG_ORANGE){
+                            div.style.backgroundColor = "orange";
+                        }
+                        if(div.textContent >= FLAG_YELLOW){
+                            div.style.backgroundColor = "yellow";
+                        }
+                        if(div.textContent >= FLAG_GREEN){
+                            div.style.backgroundColor = "green";
+                        }
+                    }
+                </script>
+            </section>
+        </footer>
+    </body>
+</html>
