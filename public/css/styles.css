@@ -21,10 +21,8 @@
 
 *{
     box-sizing: border-box;
-
     /* border: 1px solid red; */
 }
-
 
 header{
     display: grid;
@@ -33,21 +31,28 @@ header{
     font-family: pokemon_solid;
     color: rgb(240, 207, 146);
     text-shadow:2px 2px rgb(34, 150, 228);
+    justify-content: center;
 }
 
 #header-title{
-    padding-left: 40px;
+    text-align: center;
 }
 
 #pkball-container{
+    width: 80%;
     display: flex;
-    justify-content: right;
-    padding-top: 30px;
-    padding-right: 40px;
+    justify-content: right;    
 }
-#catch-em{
-    position: relative;
-    top: -20px
+
+#pkball-container a{
+    width: 50%;
+    display: grid;
+    grid-template-columns: 50vh 50vh;
+}
+
+
+#pkball-container h2{
+    text-align: right;
 }
 
 #pokeball-img{
@@ -60,17 +65,12 @@ header{
     background-size: 100%;
     background-position: right;
 }
-.index_ejs body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-}
 .index_ejs main{
     display: grid;
     grid-template-columns: 55vh 55vh 55vh;
     gap: 40px;
-    margin-left: 40px;
+    justify-content: center;
 }
 a{
     width: fit-content;
@@ -156,7 +156,7 @@ a{
 
 .img-container{
     position: relative;
-    top: -13vh;
+    top: -12vh;
     right: 0vh;
     width: fit-content;
 }

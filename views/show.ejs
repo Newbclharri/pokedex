@@ -56,10 +56,13 @@
                                 <p>(Hidden): <%= ability %></p>
                             <% } %> 
                         </td>                           
+                    </tr>
+                    <tr>
+                        <td class="first-cell">Catch rate</td>
+                        <td><%= pokemon.misc.capturerate %> </td>
                     </tr>                  
                 </table>
             </section>
-        </main>
             <section id="base-skills">
                 <table id="show-skill-bars-table"><h1>Base Stats</h1>                  
                     <% for(skill in pokemon.stats){ %>
@@ -98,15 +101,13 @@
                             bar.style.backgroundColor = red;
                             bar.style.border = `1px solid ${red}`
                             bar.style.borderRadius = borderRadius;
-                        }
-
-                        if(bar.textContent > 100){
-                            bar.style.width = "100%";
-                        }else{
-                            bar.style.width = `${bar.textContent.toString()}%`
-                        }                        
+                        }                       
+                        let stat = Math.floor(bar.textContent / 2);
+                        bar.style.width = `${stat.toString()}%`                                                
                     }
                 </script>
             </section>
+        </main>
+            
     </body>
 </html>

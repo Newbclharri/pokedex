@@ -48,4 +48,6 @@ for(i = 0; i < pokedex.length; i++){
 
 for(let ability of pokemon[0].misc.abilities.normal){
     console.log(ability)
+
+    module.exports = pokeNames;
 }

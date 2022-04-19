@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html class="new_ejs" lang="en">
+   <%- include("partials/head.ejs") %>
+    <body>
+        <header><h1>Catch'em all!</h1></header>
+        <form action="/pokedex/" method="post">
+            <input list="pokemon" name="name">
+            <datalist id="pokemon">
+                <% for(let name of pokeNames) {%> 
+                    <option value="<%=name%>"></option>
+                <% } %> 
+            </datalist>               
+            <input type="submit" value="Add Pokemon">
+        </form>
+    </body>
+</html>

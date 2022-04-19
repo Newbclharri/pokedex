@@ -16,6 +16,9 @@ const morgan = require("morgan");
 // Database
 //////////////////////
 const pokemon = require("./models/pokemon");
+const pokeNames = getNames(pokemon);
+
+console.log(pokeNames)
 const pokeIndexes=[]
 const pokedex = [
                     pokemon[0], pokemon[1], pokemon[2], pokemon[3], pokemon[4], pokemon[5], pokemon[6], 
@@ -24,6 +27,8 @@ const pokedex = [
 
 let pokeId = null;
 let pokeIndex = null;
+
+console.log(typeof(pokeNames))
 
 //////////////////////
 // Declare Middleware
@@ -43,8 +48,18 @@ app.get("/", (req,res)=>{
 })
 
 //index
-app.get("/pokedex", (req, res)=>{
+app.get("/pokedex/", (req, res)=>{
     res.render("index.ejs", {pokedex: pokedex});
+});
+
+//new
+app.get("/pokedex/new", (req, res) =>{
+    res.render("new.ejs", {pokeNames: pokeNames})
+});
+
+app.post("/pokedex/", (req, res)=>{
+    console.log(req.body.name)
+    res.send(req.body);
 });
 
 //show
@@ -61,21 +76,30 @@ app.listen(PORT, ()=>console.log("listening to catch'em all on port", PORT));
 ///////////////////////////
 // Functions
 ///////////////////////////
-function getPokemonIndexes(name){
-    pokemon.forEach((pokemon, index) =>{
-        if(pokemon.name === name){
+function getNames(pokemonData){
+    const array = [];
+    pokemonData.forEach(pokemon =>{
+        array.push(pokemon.name)
+    });
+    array.sort();
+    return array;
+}
+
+function buildPokedex(name, pokeData){
+    const arrayIndexes = []
+    pokeData.forEach((element, index) =>{
+        if(element.name === name){
             pokeIndexes.push(index);
         }
     })
-
     pokeIndexes.sort();
 }
 
-function buildPokedex(){
-    for(let index of pokeIndexes){
-        pokedex.push(pokemon[index])
-    }
-}
+// function buildPokedex(){
+//     for(let index of pokeIndexes){
+//         pokedex.push(pokemon[index])
+//     }
+// }
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
