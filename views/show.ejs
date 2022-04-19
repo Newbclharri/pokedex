@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="show_ejs" lang="en">
     <%- include("partials/head.ejs") %> 
     <body class="show_ejs">
         <header>
@@ -18,35 +18,95 @@
                 <div></div>
                 <img class="<%= pokemon.type[0] %> " src="<%=pokemon.img%>" alt="<%=pokemon.name%>">
             </div>
+            <section id="section-pokedex">
+                <table><h1>Pokedex</h1>
+                    <tr>
+                       <td class="first-cell">National No.</td>
+                       <td><h1><%=pokemon.id%></h1></td>                       
+                    </tr>
+                    <tr>
+                        <td class="first-cell">Species</td>
+                        <td><%= pokemon.misc.classification %></td>
+                    </tr>
+                    <tr>
+                        <td class="first-cell">Type</td>
+                        <td class="show-<%= pokemon.type[0]%>" style="display: inline; margin-right: 2px"><%=pokemon.type[0]%></td>
+                        <td class="show-<%= pokemon.type[1]%> " style="display: inline"><%=pokemon.type[1]%></td>
+                    </tr>
+                    <tr>
+                        <td class="first-cell">Height</td>
+                        <td><%= pokemon.misc.height%> </td>
+                    </tr>
+                    <tr>
+                        <td class="first-cell">Weight</td>
+                        <td><%= pokemon.misc.weight%> </td>
+                    </tr>
+                    <tr>
+                        <td class="first-cell">Abilities</td>
+                        <td>
+                            <% for(let ability of pokemon.misc.abilities.normal) {%>
+                                <p><%= ability%></p>    
+                            <% } %> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td>
+                            <% for(let ability of pokemon.misc.abilities.hidden) {%>
+                                <p>(Hidden): <%= ability %></p>
+                            <% } %> 
+                        </td>                           
+                    </tr>                  
+                </table>
+            </section>
         </main>
-        <footer>
-            <section id="skill-bars">
-                <div id="show-skill-bar-container">
+            <section id="base-skills">
+                <table id="show-skill-bars-table"><h1>Base Stats</h1>                  
                     <% for(skill in pokemon.stats){ %>
-                        <p><%=skill%></p>
-                        <div id="<%= skill %>" class="skill-bar"><%= +pokemon.stats[skill] %> </div>
+                    <tr bordercolor="rgba(182, 178, 178, 0.733)">
+                        <td class="first-cell" style="width:5%; text-align: right;"><%=skill%></td>
+                        <td><div id="<%= skill %>" class="skill-bar"><%=+pokemon.stats[skill]%></div></td>
+                    </tr>
                     <% } %>
-                </div>
+                </table>
                 <script>
-                    const skillBarDivs = document.querySelectorAll(".skill-bar");
+                    const skillBars = document.querySelectorAll(".skill-bar");
                     const FLAG_ORANGE = 25;
                     const FLAG_YELLOW = 50;
                     const FLAG_GREEN = 75;
-                    console.log(skillBarDivs)
-                    console.log(skillBarDivs[0].textContent)
-                    for(let div of skillBarDivs){
-                        if(div.textContent >= FLAG_ORANGE){
-                            div.style.backgroundColor = "orange";
+                    const green = "rgb(139, 233, 139)";
+                    const yellow = "yellow";
+                    const orange = "rgb(236, 187, 96)";
+                    const red = "red";
+                    const borderRadius = "10px"
+                    console.log(skillBars)
+                    console.log(skillBars[0].textContent)
+                    for(let bar of skillBars){
+                        if(bar.textContent >= FLAG_GREEN){
+                            bar.style.backgroundColor = green;
+                            bar.style.border = `1px solid ${green}`
+                            bar.style.borderRadius = borderRadius;
+                        }else if(bar.textContent >= FLAG_YELLOW){
+                            bar.style.backgroundColor = yellow;
+                            bar.style.border = `1px solid ${yellow}`
+                            bar.style.borderRadius = borderRadius;
+                        }else if(bar.textContent >= FLAG_ORANGE){
+                            bar.style.backgroundColor = orange;
+                            bar.style.border = `1px solid ${orange}`
+                            bar.style.borderRadius = borderRadius;
+                        }else{
+                            bar.style.backgroundColor = red;
+                            bar.style.border = `1px solid ${red}`
+                            bar.style.borderRadius = borderRadius;
                         }
-                        if(div.textContent >= FLAG_YELLOW){
-                            div.style.backgroundColor = "yellow";
-                        }
-                        if(div.textContent >= FLAG_GREEN){
-                            div.style.backgroundColor = "green";
-                        }
+
+                        if(bar.textContent > 100){
+                            bar.style.width = "100%";
+                        }else{
+                            bar.style.width = `${bar.textContent.toString()}%`
+                        }                        
                     }
                 </script>
             </section>
-        </footer>
     </body>
 </html>

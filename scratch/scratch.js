@@ -46,4 +46,6 @@ for(i = 0; i < pokedex.length; i++){
     stats = null;
 }
 
-console.log(pokemon[12].type[0], pokemon[13].type[0])
+for(let ability of pokemon[0].misc.abilities.normal){
+    console.log(ability)
+}

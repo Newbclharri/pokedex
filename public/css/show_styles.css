@@ -2,14 +2,29 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 :root{
     --skillBarColor: red;
+    --tableBorder: 1px solid rgba(182, 178, 178, 0.733);
+    --trBorderColor: rgba(182, 178, 178, 0.733);
+    --infoBgColor: rgba(240, 248, 255, 0.719);
+    --infoBorderRadius: 0px;
+}
+
+.show_ejs{
+    background-color: gray;
 }
 .show_ejs body{
-    height: 90%;
-    margin-bottom: 100vh;
+    background-image: url("https://user-images.githubusercontent.com/97874956/163669288-6abe250c-3960-4c21-8ec6-c6874ad359be.png");
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+}
+
+.show_ejs header{
+    margin: 0 auto;
+    width: 90%;
 }
 
 .show_ejs header img{
@@ -26,16 +41,58 @@
     transform: rotate(-35deg); 
 }
 .show_ejs main{
-    margin: 0 auto;
+    margin: 20px auto;
+    padding-left: 10%;
     width: 80%;
-    height: 100%;
-    background-image: url("https://user-images.githubusercontent.com/97874956/163669288-6abe250c-3960-4c21-8ec6-c6874ad359be.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
+    display: grid;
+    grid-template-columns: 40vh 40vh;
+    
 }
 
-#hp{
+#section-pokedex{
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--infoBgColor); 
+    border: 1px solid var(--infoBgColor);
+    border-radius: var(--infoBorderRadius); 
+}
+
+.first-cell{
+    text-align: right;
+    padding-right: 20px;
+}
+
+.show-Fire{
+    background-color: orange;
+    color: white;
+}
+.show-Flying{
+    background-color: skyblue;
+    color: white
+}
+
+#base-skills{
+    background-color: var(--infoBgColor); 
+    border: 1px solid var(--infoBgColor);
+    border-radius: var(--infoBorderRadius);
+    margin-left: 20%;
+    width: 27%;
+    position: relative;
+    /* bottom: -90px; */
+}
+
+
+.show_ejs table{
+    /* width: 100%; */
+    border-top: var(--tableBorder);   
+}
+
+.show_ejs td{    
+    border-bottom: var(--tableBorder);
+    padding-left: 5px;
+}
+
+/* #hp{
     background-color: var(--skillBarColor);
     width: 45%;
 }
@@ -43,6 +100,11 @@
 #attack{
     background-color: var(--skillBarColor);
     width: 49%
+}
+
+#defense{
+    background-color: var(--skillBarColor);
+    
 }
 
 #spattack{
@@ -58,4 +120,4 @@
 #speed{
     background-color: var(--skillBarColor);
     width: 45%;
-}
+} */
