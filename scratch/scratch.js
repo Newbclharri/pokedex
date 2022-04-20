@@ -32,22 +32,28 @@ console.log("alpha order:",pokeNames);
 
 const pokedex = [pokemon[0], pokemon[1], pokemon[2]];
 
-for(i = 0; i < pokedex.length; i++){
-    let arryStatKeys = Object.keys(pokedex[i].stats)
-    let stats = pokedex[i].stats;
-    console.log(stats)
-    let statKey = arryStatKeys[i];
-    // console.log("Stat key: ", statKey, "| Value:", +stats[statKey]);
+// for(i = 0; i < pokedex.length; i++){
+//     let arryStatKeys = Object.keys(pokedex[i].stats)
+//     let stats = pokedex[i].stats;
+//     console.log(stats)
+//     let statKey = arryStatKeys[i];
+//     // console.log("Stat key: ", statKey, "| Value:", +stats[statKey]);
 
-    for(skill in stats){
-        console.log(pokemon[i].name, skill, ":", +stats[skill])
-    }
+// //     for(skill in stats){
+// //         console.log(pokemon[i].name, skill, ":", +stats[skill])
+// //     }
 
-    stats = null;
-}
+// //     stats = null;
+// // }
 
-for(let ability of pokemon[0].misc.abilities.normal){
-    console.log(ability)
+// // for(let ability of pokemon[0].misc.abilities.normal){
+// //     console.log(ability)
 
-    module.exports = pokeNames;
-}
+    
+// }
+
+const numbers = [5,7,1,9,21,3,48];
+
+numbers.sort((a,b)=>a-b)
+
+console.log(numbers)

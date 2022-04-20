@@ -18,12 +18,10 @@ const morgan = require("morgan");
 const pokemon = require("./models/pokemon");
 const pokeNames = getNames(pokemon);
 
-console.log(pokeNames)
-const pokeIndexes=[]
-const pokedex = [
-                    pokemon[0], pokemon[1], pokemon[2], pokemon[3], pokemon[4], pokemon[5], pokemon[6], 
-                    pokemon[7], pokemon[8], pokemon[9], pokemon[10], pokemon[11]   
-                ];
+// console.log(pokeNames)
+const pokeIndexes=[0,1,2,3,4,5,6,7,8,9,10,11];
+let pokedex = [];
+// buildPokedex();
 
 let pokeId = null;
 let pokeIndex = null;
@@ -35,7 +33,7 @@ console.log(typeof(pokeNames))
 //////////////////////
 app.use(express.urlencoded({"extended":false}));
 app.use("/static", express.static("public"));
-app.use(methodOverride("-method"));
+app.use(methodOverride("_method"));
 app.use(morgan("tiny"));
 
 ///////////////////////
@@ -49,7 +47,7 @@ app.get("/", (req,res)=>{
 
 //index
 app.get("/pokedex/", (req, res)=>{
-    res.render("index.ejs", {pokedex: pokedex});
+    res.render("index.ejs", {pokedex: pokedex, pokeIndexes: pokeIndexes, pokemon:pokemon});
 });
 
 //new
@@ -59,7 +57,10 @@ app.get("/pokedex/new", (req, res) =>{
 
 app.post("/pokedex/", (req, res)=>{
     console.log(req.body.name)
-    res.send(req.body);
+    pushIndex(req.body.name, pokemon)
+    // pokedex = [];
+    // buildPokedex()
+    res.redirect("/pokedex/")
 });
 
 //show
@@ -68,10 +69,17 @@ app.get("/pokedex/:id", (req, res) =>{
     res.render("show.ejs",{pokemon: pokemon[index]})
 });
 
+//delete
+app.delete("/pokedex/:id", (req, res) =>{
+    const index = pokeIndexes.indexOf(+req.params.id);
+    pokeIndexes.splice(index,1);
+    res.redirect("/pokedex/")
+})
+
 ///////////////////////////
 // Server Listener
 ///////////////////////////
-app.listen(PORT, ()=>console.log("listening to catch'em all on port", PORT));
+app.listen(PORT, ()=>console.log("catchin'em all on port", PORT));
 
 ///////////////////////////
 // Functions
@@ -85,21 +93,24 @@ function getNames(pokemonData){
     return array;
 }
 
-function buildPokedex(name, pokeData){
-    const arrayIndexes = []
+function pushIndex(name, pokeData){
+
     pokeData.forEach((element, index) =>{
         if(element.name === name){
-            pokeIndexes.push(index);
+            if(!pokeIndexes.includes(index)){
+                pokeIndexes.push(index);
+            }
         }
     })
-    pokeIndexes.sort();
+    pokeIndexes.sort((a,b)=>a-b);
+    
 }
 
-// function buildPokedex(){
-//     for(let index of pokeIndexes){
-//         pokedex.push(pokemon[index])
-//     }
-// }
+function buildPokedex(){
+    for(let index of pokeIndexes){
+        pokedex.push(pokemon[index])
+    }
+}
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

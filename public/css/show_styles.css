@@ -1,6 +1,6 @@
-*{
+.show_ejs *{
     box-sizing: border-box;
-    margin: 0;
+    margin: 0 auto;   
     padding: 0;
     /* border: 2px solid red; */
 }
@@ -10,19 +10,17 @@
     --trBorderColor: rgba(182, 178, 178, 0.733);
     --infoBgColor: rgba(240, 248, 255, 0.719);
     --infoBorderRadius: 0px;
-    --colorGrass: rgb(96, 233, 96);
-    
+    --colorGrass: rgb(96, 233, 96);    
 }
 
 .show_ejs{
     background-color: gray;
-}
-.show_ejs body{
-    height: 90%;
+    margin: 0 auto;
 }
 
+
 .show_ejs header{
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 90%;
 }
 
@@ -42,16 +40,20 @@
 .show_ejs main{
     background-image: url("https://user-images.githubusercontent.com/97874956/163669288-6abe250c-3960-4c21-8ec6-c6874ad359be.png");
     background-repeat: no-repeat;
-    background-size: 90%;
+    background-size: 100%;
     background-position: center; 
     margin: 20px auto;
     padding-top: 21vh;
-    padding-bottom: 2vh;
-    padding-left: 25%;
-    width: 100%;
+    padding-bottom: 1vh;
+    padding-left: 0%;
+    width: 90%;
     display: grid;
-    grid-template-columns: 70vh 70vh;
+    grid-template-columns: 60vh 60vh;
+    justify-content: center;
+}
 
+.poke-img{
+    border-radius: 10px;
 }
 
 #section-pokedex{
@@ -65,6 +67,10 @@
 .first-cell{
     text-align: right;
     padding-right: 20px;
+}
+
+.skill-bar{
+    margin-left: 0px;
 }
 
 .show-Grass{
@@ -90,6 +96,7 @@
     position: relative;
     top: 1vh;
     /* bottom: -90px; */
+    
 }
 
 
@@ -102,33 +109,3 @@
     border-bottom: var(--tableBorder);
     padding-left: 5px;
 }
-
-/* #hp{
-    background-color: var(--skillBarColor);
-    width: 45%;
-}
-
-#attack{
-    background-color: var(--skillBarColor);
-    width: 49%
-}
-
-#defense{
-    background-color: var(--skillBarColor);
-    
-}
-
-#spattack{
-    background-color: var(--skillBarColor);
-    width: 65%;
-}
-
-#spdefense{
-    background-color: var(--skillBarColor);
-    width: 65%;
-}
-
-#speed{
-    background-color: var(--skillBarColor);
-    width: 45%;
-} */

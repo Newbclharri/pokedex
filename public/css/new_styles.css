@@ -1,0 +1,39 @@
+.new_ejs :root{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.new_ejs *{
+    /* border: 2px solid red; */
+}
+
+.new_ejs header{
+    position: relative;
+}
+
+.new_ejs #pokeball-img{
+    height: 70px;
+    width: 70px;
+    background-image: url('https://user-images.githubusercontent.com/97874956/163649584-00dc4d78-9e61-40ae-a435-6b4fe2aaf6ad.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: right;
+    position: absolute;
+    left: 0px;
+}
+
+.new_ejs .zoom{
+    transition: .2s;
+}
+
+.new_ejs .zoom :hover{
+    -ms-transform: scale(var(--scale)); /* IE 9 */
+    -webkit-transform: scale(var(--scale)); /* Safari 3-8 */
+    transform: scale(var(--scale));
+}
+
+.new_ejs main{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}

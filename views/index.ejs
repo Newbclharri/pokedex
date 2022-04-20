@@ -9,31 +9,43 @@
             </div>
         </header> <br> <br>
         <main>
-            <% for(i = 0; i < pokedex.length; i++) {%>
-                <div id="<%= +pokedex[i].id %> " class="display-pokemon">
-                    <div class="nintendo-switch-bg shadow-<%= pokedex[i].type[0]%>">
-                        <div class="pokemon switch-screen">
-                            <a href="/pokedex/<%=i%>">
-                                <div class="zoom poke-name <%= pokedex[i].type[0]%>"><%=pokedex[i].name%></div>
-                            </a>
-                            <a href="/pokedex/<%= i %> "> 
-                                <div id="<%= pokedex[i].name%>" class="skills-container zoom">
-                            
-                            <% let stats = pokedex[i].stats %>
-                            <% for(skill in stats) {%>
-                                    <div class="skills"><%-skill%>: <span class="value"><%= stats[skill] %></span></div>        
-                            <% } %>
+            <% for(i = 0; i < pokeIndexes.length; i++) {%>
+
+                <section class="column">
+                    <form class="delete" action="/pokedex/<%= pokeIndexes[i] %> ?_method=DELETE" method="post">
+                        <input type="submit" value="Delete">
+                    </form>
+                    
+                    <div id="<%= +pokemon[pokeIndexes[i]].id %> " class="display-pokemon">
+                        <div class="nintendo-switch-bg shadow-<%= pokemon[pokeIndexes[i]].type[0]%>">
+                            <div class="pokemon switch-screen">
+                                    <a href="/pokedex/<%= pokeIndexes[i]%>"> 
+                                        <div class="zoom poke-name <%= pokemon[pokeIndexes[i]].type[0]%>"><%=pokemon[pokeIndexes[i]].name%> <%= pokeIndexes[i] + 1 %> </div>
+                                    </a>
+                                   
+                                <section class="switch-display">
+                                    <a href="/pokedex/<%=  pokeIndexes[i] %>"> 
+                                        <div class="img-container zoom">
+                                            <div class="type-item"><%= pokemon[pokeIndexes[i]].type[0]%>,<%= pokemon[pokeIndexes[i]].type[1]%></div>
+                                            <img class="<%= pokemon[pokeIndexes[i]].type[0]%>" src="<%= pokemon[pokeIndexes[i]].img%>" alt="<%= pokemon[pokeIndexes[i]].name%>">
+                                        </div>
+                                    </a>    
+                                    <a href="/pokedex/<%= pokeIndexes[i] %>"> 
+                                        <div class="skills-container zoom">                                
+                                    <% let stats = pokemon[pokeIndexes[i]].stats %>
+                                    <% for(skill in stats) {%>
+                                        <div class="skills"><%-skill%>: <span class="value"><%= stats[skill] %></span></div>        
+                                    <% } %>
+                                        </div>
+                                    </a>  
+                                </section>                   
                             </div>
-                            </a>                                                 
-                            <a href="/pokedex/<%=i %> "> 
-                                <div class="img-container zoom">
-                                    <div class="type-item"><%= pokedex[i].type[0]%>,<%= pokedex[i].type[1]%></div>
-                                    <img class="<%= pokedex[i].type[0]%>" src="<%= pokedex[i].img%>" alt="<%= pokedex[i].name%>">
-                                </div>
-                            </a>
                         </div>
                     </div>
-                </div>
+
+                </section>
+            
+                
             <% } %>  
         </main>
     </body>

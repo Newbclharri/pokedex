@@ -21,17 +21,18 @@
 
 *{
     box-sizing: border-box;
+    margin: 0;
     /* border: 1px solid red; */
 }
 
 header{
     display: grid;
     grid-template-columns: auto auto ;
+    justify-content: center;
     background-color: var(--bgColorHeader);
     font-family: pokemon_solid;
     color: rgb(240, 207, 146);
     text-shadow:2px 2px rgb(34, 150, 228);
-    justify-content: center;
 }
 
 #header-title{
@@ -40,12 +41,13 @@ header{
 
 #pkball-container{
     width: 80%;
-    display: flex;
-    justify-content: right;    
+    /* display: flex; */
+    margin-top: 30px;
+    /* justify-content: right;     */
 }
 
 #pkball-container a{
-    width: 50%;
+    /* width: fit-content; */
     display: grid;
     grid-template-columns: 50vh 50vh;
 }
@@ -53,6 +55,7 @@ header{
 
 #pkball-container h2{
     text-align: right;
+    margin-top: 0px;
 }
 
 #pokeball-img{
@@ -72,10 +75,17 @@ header{
     gap: 40px;
     justify-content: center;
 }
+
+section .column{
+    /* display: grid;
+    grid-template-rows: auto;
+    column-gap: 20vh; */
+}
 a{
     width: fit-content;
 }
 .nintendo-switch-bg{
+    font-family: var(--fontSwitch);
     height: 200px;
     width: 100%;
     background-image: url("https://user-images.githubusercontent.com/97874956/163660278-4cceee67-0e61-46a9-b709-8e3b3979a35a.png");
@@ -88,6 +98,8 @@ a{
     border-radius: 10px;
     box-shadow: var(--boxShadow);
 }
+
+
 
 .shadow-Fire{
     box-shadow: var(--boxShadowFire);
@@ -110,15 +122,27 @@ a{
     background-image: url("https://user-images.githubusercontent.com/97874956/163669288-6abe250c-3960-4c21-8ec6-c6874ad359be.png");
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: center;
-    /* position: relative;
-    right: -10vh; */
+    background-position: center; 
 }
 .poke-name{
-    margin: 0 auto;
-    margin-top: 10px;
+    margin: 8px auto;
     width:fit-content;
-    font-family: var(--fontSwitch);
+ 
+}
+
+.index_ejs .delete{
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 10px;
+    /* position: relative;
+    top: -5vh;
+    right: -33vh;     */
+}
+
+.switch-display{
+    /* margin-top: -5px; */
+    display: grid;
+    grid-template-columns: 24vh max-content;
 }
 
 .value{
@@ -126,16 +150,13 @@ a{
     text-shadow: -2px 2px aquamarine;
 }
 
-.skills-container{
-    position: relative;
-    top: 10px;
-    right: -58%;
+.skills-container{    
     color: yellow;
     text-shadow: -1px 1px blue;
-    font-family: var(--fontSwitch);
     font-size: 12px;
     display: inline-block;    
-    width: fit-content;
+    width: 100%;
+    margin-top: 10px;
     padding-left: 5px;
     background-color: var(--skillsBg);
     border: 2px solid var(--skillsBg);
@@ -143,27 +164,24 @@ a{
 }
 
 .skills{
-    width: fit-content;
+    width: 100%;
     margin-bottom: 8px;
 }
 
 .type-item{
-    font-family: var(--fontSwitch);
     font-size: 12px;
     color: yellow;
     transition: .2s;
 }
 
-.img-container{
-    position: relative;
-    top: -12vh;
-    right: 0vh;
+.img-container{    
     width: fit-content;
 }
 
 .img-container img{
     height: 150px;
     width: 150px; 
+    border-radius: 10px;
 }
 
 .zoom{
@@ -173,40 +191,34 @@ a{
 .zoom:hover{
     -ms-transform: scale(var(--scale)); /* IE 9 */
     -webkit-transform: scale(var(--scale)); /* Safari 3-8 */
-    transform: scale(var(--scale)); 
-    
+    transform: scale(var(--scale));     
 }
 
 .type-item:hover{
     color: blue;
-    transform: scale(var(--scale)); 
-    
+    transform: scale(var(--scale));     
 }
 
 .Grass{   
     color: var(--colorGrass);
     text-shadow: -2px 2px blue;
     border: 2px solid var(--colorGrass);
-    border-radius: 10px;
 }
 
 .Fire{
     color: var(--colorFire);
     text-shadow: -2px 2px blue;
     border: 2px solid var(--colorFire);
-    border-radius: 10px;
 }
 
 .Water{
     color: var(--colorWater);
     text-shadow: -2px 2px blue;
     border: 2px solid var(--colorWater);
-    border-radius: 10px;
 }
 
 .Bug{
     color: var(--colorBug);
     text-shadow: -2px 2px blue;
     border: 2px solid var(--colorBug);
-    border-radius: 10px;
 }

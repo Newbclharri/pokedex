@@ -16,7 +16,7 @@
         <main>
             <div class="show-img-container">
                 <div></div>
-                <img class="<%= pokemon.type[0] %> " src="<%=pokemon.img%>" alt="<%=pokemon.name%>">
+                <img class="<%= pokemon.type[0] %> poke-img" src="<%=pokemon.img%>" alt="<%=pokemon.name%>">
             </div>
             <section id="section-pokedex">
                 <table><h1>Pokedex</h1>
@@ -76,12 +76,12 @@
                     const skillBars = document.querySelectorAll(".skill-bar");
                     const FLAG_ORANGE = 25;
                     const FLAG_YELLOW = 50;
-                    const FLAG_GREEN = 75;
+                    const FLAG_GREEN = 80;
                     const green = "rgb(139, 233, 139)";
                     const yellow = "yellow";
                     const orange = "rgb(236, 187, 96)";
                     const red = "red";
-                    const borderRadius = "10px"
+                    const borderRadius = "10px";
                     console.log(skillBars)
                     console.log(skillBars[0].textContent)
                     for(let bar of skillBars){
@@ -107,7 +107,6 @@
                     }
                 </script>
             </section>
-        </main>
-            
+        </main>            
     </body>
 </html>

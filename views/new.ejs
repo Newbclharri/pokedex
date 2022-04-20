@@ -2,15 +2,24 @@
 <html class="new_ejs" lang="en">
    <%- include("partials/head.ejs") %>
     <body>
-        <header><h1>Catch'em all!</h1></header>
-        <form action="/pokedex/" method="post">
-            <input list="pokemon" name="name">
-            <datalist id="pokemon">
-                <% for(let name of pokeNames) {%> 
-                    <option value="<%=name%>"></option>
-                <% } %> 
-            </datalist>               
-            <input type="submit" value="Add Pokemon">
-        </form>
+        <header>
+            <h1>Catch'em all!</h1>
+            <div id="pkball-container-2">
+                <a href="/pokedex/"><div id="pokeball-img" class="zoom"></div></a>
+            </div>
+        </header>
+
+        <main>
+            <form class="add" action="/pokedex/" method="post">
+                <input list="pokemon" name="name">
+                <datalist id="pokemon">
+                    <% for(let name of pokeNames) {%> 
+                        <option value="<%=name%>"></option>
+                    <% } %> 
+                </datalist>               
+                <input type="submit" value="Add Pokemon">
+            </form>
+        </main>
+      
     </body>
 </html>
