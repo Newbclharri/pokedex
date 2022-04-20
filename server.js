@@ -17,16 +17,8 @@ const morgan = require("morgan");
 //////////////////////
 const pokemon = require("./models/pokemon");
 const pokeNames = getNames(pokemon);
-
-// console.log(pokeNames)
 const pokeIndexes=[0,1,2,3,4,5,6,7,8,9,10,11];
 let pokedex = [];
-// buildPokedex();
-
-let pokeId = null;
-let pokeIndex = null;
-
-console.log(typeof(pokeNames))
 
 //////////////////////
 // Declare Middleware
@@ -47,7 +39,7 @@ app.get("/", (req,res)=>{
 
 //index
 app.get("/pokedex/", (req, res)=>{
-    res.render("index.ejs", {pokedex: pokedex, pokeIndexes: pokeIndexes, pokemon:pokemon});
+    res.render("index.ejs", {pokeIndexes: pokeIndexes, pokemon:pokemon});
 });
 
 //new
@@ -56,10 +48,7 @@ app.get("/pokedex/new", (req, res) =>{
 });
 
 app.post("/pokedex/", (req, res)=>{
-    console.log(req.body.name)
-    pushIndex(req.body.name, pokemon)
-    // pokedex = [];
-    // buildPokedex()
+    pushIndex(req.body.name, pokemon)    
     res.redirect("/pokedex/")
 });
 
@@ -104,12 +93,6 @@ function pushIndex(name, pokeData){
     })
     pokeIndexes.sort((a,b)=>a-b);
     
-}
-
-function buildPokedex(){
-    for(let index of pokeIndexes){
-        pokedex.push(pokemon[index])
-    }
 }
 
 function capitalizeFirstLetter(string) {

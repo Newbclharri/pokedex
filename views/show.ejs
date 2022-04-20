@@ -9,7 +9,7 @@
                     <img 
                         src="https://user-images.githubusercontent.com/97874956/163709408-30602c13-28b5-4afe-a677-c1e26f2dd654.png" 
                         alt="<%= pokemon.name%>">
-                    <h2 class="rotate">To Pokedex!</h2>
+                    <h2 class="rotate">Back!</h2>
                 </div>
             </a>
         </header>
@@ -19,7 +19,7 @@
                 <img class="<%= pokemon.type[0] %> poke-img" src="<%=pokemon.img%>" alt="<%=pokemon.name%>">
             </div>
             <section id="section-pokedex">
-                <table><h1>Pokedex</h1>
+                <table><h1 style="text-align: center;">Pokedex</h1>
                     <tr>
                        <td class="first-cell">National No.</td>
                        <td><h1><%=pokemon.id%></h1></td>                       
@@ -64,7 +64,7 @@
                 </table>
             </section>
             <section id="base-skills">
-                <table id="show-skill-bars-table"><h1>Base Stats</h1>                  
+                <table id="show-skill-bars-table"><h1 style="padding-left: 5px;">Base Stats</h1>                  
                     <% for(skill in pokemon.stats){ %>
                     <tr bordercolor="rgba(182, 178, 178, 0.733)">
                         <td class="first-cell" style="width:5%; text-align: right;"><%=skill%></td>
